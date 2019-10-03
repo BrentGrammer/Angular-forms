@@ -8,8 +8,9 @@ import { NgForm } from "@angular/forms";
 })
 export class AppComponent {
   // get local ref for the form element:
-  @ViewChild("f") signupForm: NgForm;
-
+  @ViewChild("f", { static: true }) signupForm: NgForm;
+  defaultSelectValue = "pet";
+  answer: string = "";
   suggestUserName() {
     const suggestedName = "Superuser";
   }
