@@ -25,18 +25,6 @@ export class AppComponent {
   suggestUserName() {
     const suggestedName = "Superuser";
 
-    // can use setvalue to set the whole form:
-    // this.signupForm.setValue({
-    //   userData: {
-    //     username: suggestedName,
-    //     email: ""
-    //   },
-    //   secret: "pet",
-    //   questionAnswer: "",
-    //   gender: "male"
-    // });
-
-    // overwrite or set parts of the form:
     this.signupForm.form.patchValue({
       userData: {
         username: suggestedName
@@ -44,10 +32,6 @@ export class AppComponent {
     });
   }
 
-  // onSubmit(form: NgForm) {
-  //   console.log("Submitted", form);
-  // }
-  // alternative approach using @ViewChild to access form instead of passig it in
   onSubmit() {
     this.submitted = true;
 
@@ -58,5 +42,7 @@ export class AppComponent {
     this.user.secretQuestion = value.secret;
     this.user.questionAnswer = value.questionAnswer;
     this.user.gender = value.gender;
+
+    this.signupForm.reset();
   }
 }
